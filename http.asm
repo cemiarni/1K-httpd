@@ -13,17 +13,31 @@
   %define SYS_EXIT 	0x02000001
 
 %else
+  %ifdef BSD
 
-  %define SYS_SOCKET 	41
-  %define SYS_BIND 	49
-  %define SYS_LISTEN 	50
-  %define SYS_ACCEPT 	43
-  %define SYS_CLOSE 	3
-  %define SYS_READ 	0
-  %define SYS_OPEN 	2
-  %define SYS_WRITE 	1
-  %define SYS_EXIT 	60
+    %define SYS_SOCKET 	0x61
+    %define SYS_BIND 	0x68
+    %define SYS_LISTEN 	0x6A
+    %define SYS_ACCEPT 	0x1E
+    %define SYS_CLOSE 	0x06
+    %define SYS_READ 	0x03
+    %define SYS_OPEN 	0x05
+    %define SYS_WRITE 	0x04
+    %define SYS_EXIT 	0x01
 
+  %else
+
+    %define SYS_SOCKET 	41
+    %define SYS_BIND 	49
+    %define SYS_LISTEN 	50
+    %define SYS_ACCEPT 	43
+    %define SYS_CLOSE 	3
+    %define SYS_READ 	0
+    %define SYS_OPEN 	2
+    %define SYS_WRITE 	1
+    %define SYS_EXIT 	60
+
+  %endif
 %endif
 
 
